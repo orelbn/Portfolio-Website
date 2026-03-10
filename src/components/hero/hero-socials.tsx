@@ -17,6 +17,7 @@ export function HeroSocials() {
               <Button
                 className="rounded-full"
                 size="icon"
+                nativeButton={false}
                 render={
                   <a
                     href="https://github.com/orelbn"
@@ -41,6 +42,7 @@ export function HeroSocials() {
               <Button
                 className="rounded-full"
                 size="icon"
+                nativeButton={false}
                 render={
                   <a
                     href="https://linkedin.com/in/orelbn"

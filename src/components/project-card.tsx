@@ -49,6 +49,7 @@ export function ProjectCard({
           <div className="flex gap-1 shrink-0">
             {link && (
               <Button
+                nativeButton={false}
                 variant="ghost"
                 size="icon"
                 className="h-8 w-8 text-muted-foreground hover:text-foreground"
@@ -66,6 +67,7 @@ export function ProjectCard({
             )}
             {href && (
               <Button
+                nativeButton={false}
                 variant="ghost"
                 size="icon"
                 className="h-8 w-8 text-muted-foreground hover:text-foreground"
