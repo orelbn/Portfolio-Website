@@ -6,7 +6,7 @@ import tseslint from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
 
 export default tseslint.config([
-  globalIgnores(["dist"]),
+  globalIgnores(["dist", "worker-configuration.d.ts"]),
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -18,6 +18,23 @@ export default tseslint.config([
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    rules: {
+      "react-refresh/only-export-components": [
+        "error",
+        { allowConstantExport: true },
+      ],
+    },
+  },
+  {
+    files: [
+      "src/components/ui/badge.tsx",
+      "src/components/ui/button.tsx",
+      "src/components/ui/carousel.tsx",
+      "src/hooks/use-is-in-view.tsx",
+    ],
+    rules: {
+      "react-refresh/only-export-components": "off",
     },
   },
 ]);

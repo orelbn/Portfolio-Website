@@ -140,8 +140,19 @@ const SplittingText: React.FC<SplittingTextProps> = ({
   const tokens = (text as string).split(/(\s+)/);
   const perChar = stagger ?? 0.05;
   const baseDelaySec = (delay ?? 0) / 1000;
+  const tokenStartOffsets = tokens.reduce<number[]>((offsets, _, index) => {
+    if (index === 0) {
+      offsets.push(0);
+      return offsets;
+    }
 
-  let globalIndex = 0;
+    const previousToken = tokens[index - 1] ?? "";
+    const previousOffset = offsets[index - 1] ?? 0;
+    offsets.push(
+      previousOffset + (/^\s+$/.test(previousToken) ? 0 : Array.from(previousToken).length),
+    );
+    return offsets;
+  }, []);
 
   return (
     <motion.span
@@ -159,8 +170,7 @@ const SplittingText: React.FC<SplittingTextProps> = ({
           return <span key={`space-${wi}`}>{tok}</span>;
         }
         const chars = Array.from(tok);
-        const wordDelay = baseDelaySec + perChar * globalIndex;
-        globalIndex += chars.length;
+        const wordDelay = baseDelaySec + perChar * (tokenStartOffsets[wi] ?? 0);
         const isHighlighted = highlightRegex?.test(tok);
 
         return (
