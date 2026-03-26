@@ -23,7 +23,7 @@ export default defineConfig({
     },
   },
   fmt: {
-    ignore: ["worker-configuration.d.ts"],
+    ignorePatterns: ["dist/**", "worker-configuration.d.ts"],
   },
   html: {
     cspNonce: "__NONCE__",
