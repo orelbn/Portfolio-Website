@@ -9,7 +9,6 @@ export const projects = [
     icon: "play",
     iconColor: "text-emerald-500",
     youtubeId: "XPzxfn-JzOI",
-    link: "https://get-stride.com/docs",
   },
   {
     id: "shenko-ai",

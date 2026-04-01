@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/data/projects";
 import { getSafeExternalUrl } from "@/lib/safe-url";
-import { Globe } from "lucide-react";
 
 export function ProjectCard({
   youtubeId,
@@ -11,10 +10,8 @@ export function ProjectCard({
   technologies,
   title,
   href,
-  link,
 }: Project) {
   const safeHref = getSafeExternalUrl(href);
-  const safeLink = getSafeExternalUrl(link);
 
   return (
     <div className="flex flex-col gap-4 h-full group">
@@ -68,24 +65,6 @@ export function ProjectCard({
         <div className="flex items-start justify-between gap-4">
           <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
           <div className="flex gap-1 shrink-0">
-            {safeLink && (
-              <Button
-                nativeButton={false}
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-foreground"
-                render={
-                  <a
-                    href={safeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Visit Website"
-                  />
-                }
-              >
-                <Globe className="h-4 w-4" />
-              </Button>
-            )}
             {safeHref && (
               <Button
                 nativeButton={false}
