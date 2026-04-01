@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/hooks/theme-provider";
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="proftolio-ui-theme">
+    <ThemeProvider defaultTheme="system" storageKey="portfolio-ui-theme">
       <div className="min-h-screen bg-background">
         <div className="fixed top-4 right-4 z-50">
           <ModeToggle />

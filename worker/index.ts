@@ -37,7 +37,7 @@ function withDefaultSecurityHeaders(response: Response) {
 
 app.get("/api/", (c) => {
   return c.json({
-    name: "Proftolio API",
+    name: "Portfolio API",
     timestamp: new Date().toISOString(),
   });
 });
