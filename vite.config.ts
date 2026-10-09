@@ -2,11 +2,21 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
-import { defineConfig } from "vite-plus";
+import { defineConfig, lazyPlugins } from "vite-plus";
+import type { PluginOption } from "vite-plus";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), babel({ presets: [reactCompilerPreset()] }), cloudflare(), tailwindcss()],
+  plugins: lazyPlugins(async () => {
+    const workerPlugins = process.env.VITEST ? [] : cloudflare();
+
+    return [
+      ...react(),
+      await babel({ presets: [reactCompilerPreset()] }),
+      ...workerPlugins,
+      ...tailwindcss(),
+    ] as PluginOption[];
+  }),
   resolve: {
     tsconfigPaths: true,
   },
