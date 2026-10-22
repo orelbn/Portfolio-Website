@@ -1,4 +1,5 @@
 {
+  "extends": "./.void/tsconfig.json",
   "files": [],
   "references": [
     {
@@ -14,10 +15,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "void/routes": ["./.void/routes.d.ts"]
     },
     "strict": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["void/env"]
   }
 }

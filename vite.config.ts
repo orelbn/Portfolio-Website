@@ -1,4 +1,4 @@
-import { cloudflare } from "@cloudflare/vite-plugin";
+import { voidPlugin } from "void";
 import tailwindcss from "@tailwindcss/vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
@@ -8,7 +8,7 @@ import type { PluginOption } from "vite-plus";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: lazyPlugins(async () => {
-    const workerPlugins = process.env.VITEST ? [] : cloudflare();
+    const workerPlugins = process.env.VITEST ? [] : voidPlugin();
 
     return [
       ...react(),
@@ -21,14 +21,14 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   lint: {
-    ignorePatterns: ["dist/**", "worker-configuration.d.ts"],
+    ignorePatterns: ["dist/**", ".void/**", ".void-wrangler.jsonc"],
     options: {
       typeAware: true,
       typeCheck: true,
     },
   },
   fmt: {
-    ignorePatterns: ["dist/**", "worker-configuration.d.ts"],
+    ignorePatterns: ["dist/**", ".void/**", ".void-wrangler.jsonc"],
   },
   html: {
     cspNonce: "__NONCE__",

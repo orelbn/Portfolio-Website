@@ -31,3 +31,7 @@ dist-ssr
 !.env.example
 .agents/skills
 skills-lock.json
+# Void generated files and local state
+.void-wrangler.jsonc
+.void/
+*.tsbuildinfo
