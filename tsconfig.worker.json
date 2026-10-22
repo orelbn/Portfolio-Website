@@ -5,7 +5,7 @@
     "lib": ["ESNext", "WebWorker"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["./worker-configuration.d.ts"]
+    "types": ["void/env"]
   },
-  "include": ["worker-configuration.d.ts", "worker"]
+  "include": ["src/routes", "src/middleware"]
 }

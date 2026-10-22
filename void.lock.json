@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "source": {
+    "name": "portfolio-website",
+    "account_id": "3ed90c45b6b16fdc865cfb55a6fbad2f",
+    "assets": {
+      "not_found_handling": "single-page-application",
+      "run_worker_first": true,
+      "binding": "ASSETS"
+    },
+    "observability": {
+      "enabled": true
+    },
+    "routes": [
+      {
+        "pattern": "orelbn.ca",
+        "custom_domain": true
+      },
+      {
+        "pattern": "www.orelbn.ca",
+        "custom_domain": true
+      }
+    ]
+  },
+  "resolved": {
+    "name": "portfolio-website",
+    "assets": {
+      "not_found_handling": "single-page-application",
+      "run_worker_first": true,
+      "binding": "ASSETS"
+    },
+    "observability": {
+      "enabled": true
+    },
+    "routes": [
+      {
+        "pattern": "orelbn.ca",
+        "custom_domain": true
+      },
+      {
+        "pattern": "www.orelbn.ca",
+        "custom_domain": true
+      }
+    ],
+    "account_id": "3ed90c45b6b16fdc865cfb55a6fbad2f"
+  },
+  "text": "{\n  \"name\": \"portfolio-website\",\n  \"assets\": {\n    \"not_found_handling\": \"single-page-application\",\n    \"run_worker_first\": true,\n    \"binding\": \"ASSETS\"\n  },\n  \"observability\": {\n    \"enabled\": true\n  },\n  \"routes\": [\n    {\n      \"pattern\": \"orelbn.ca\",\n      \"custom_domain\": true\n    },\n    {\n      \"pattern\": \"www.orelbn.ca\",\n      \"custom_domain\": true\n    }\n  ],\n  \"account_id\": \"3ed90c45b6b16fdc865cfb55a6fbad2f\"\n}\n"
+}
